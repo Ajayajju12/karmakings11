@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import player
+from .models import player,playermatchpoints
 
 # Register your models here.
 class playerAdmin(admin.ModelAdmin):

@@ -1,12 +1,12 @@
 from django.db import models
-from countries.models import country
-from players.models import player
+from countries.models import Country
+#from players.models import player
 from matches.models import Match
 
 
 # Create your models here.
-class players(models.model):
-    country=models.ForeignKey(country,on_delete=models.SET_NULL,null=True)
+class player(models.model):
+    country=models.ForeignKey(Country,on_delete=models.SET_NULL,null=True)
     name=models.CharField(max_length=255,null=True,blank=True)
     number=models.IntegerField(null=True,blank=True)
     matches=models.IntegerField(null=True,blank=True)
@@ -32,5 +32,6 @@ class players(models.model):
         return self.name
     
     class playermatchpoints(models.model):
-        player=models.ForeignKey(player,on_delete=models.SET_NULL)
+        player=models.ForeignKey(Player,on_delete=models.SET_NULL)
+        match=models.ForeignKey(Match,on_delete=models.SET_NULL)
         points=models.IntegerField(null=True,blank=True)
